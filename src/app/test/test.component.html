@@ -1,0 +1,103 @@
+<!--
+<h2>{{greetMsg()}}</h2>
+<h2>{{site}}</h2>
+<h2>{{2+2}}</h2>
+THIS IS INTERPLOTATION
+WE CAN'T ASSIGN VARIABLE TO INTERPLOTATION
+-->
+<!--<input id="{{myId}}" type="text"> -->
+<h2 [ngClass]="messageClasses">codeEvoluiton</h2>
+<!-- Style binding m we have the conditionality thing where as in class bindging we have ngClass directive whose object check for the true value-->
+<h2 [style.color]="hasError ? 'red': 'green'  "> Style BOI</h2>
+
+<h2 [style.color]="highlightColor">style binding</h2>
+
+<button (click)="onClick()">Greet</button>
+{{greetmsg}}
+
+<button (click)="Click11($event)">Greeting</button>
+{{aa}}
+<!-- event bta dega konsa event like mouseevent-->
+<!-- #my input yha template reference variable hh jo ki text entered value ko class k function ko return kr dega-->
+<input #myinput type="text">
+<button (click)="logMessage(myinput.value)">LOG</button>
+<h2>Welcome {{user}}</h2>
+
+<!--TWO WAY DATA BINDING -->
+<input [(ngModel)]="name1"  type="text">
+{{name1}} 
+
+
+<!-- STRUCTURAL DIRECTIVES -->
+<h2 *ngIf="displayName; else elseBlock" >Visile prava</h2>
+<ng-template #elseBlock>
+<h2>
+     not visible prava
+
+</h2>
+</ng-template>
+
+<div [ngSwitch]="color">
+    <div [style.color]="'red'"  *ngSwitchCase="'red'">you picked red</div>
+    <div [style.color]="'green'" *ngSwitchCase="'green'">you picked green</div>
+    <div [style.color]="'blue'"  *ngSwitchCase="'blue'">you picked blue</div>
+
+
+</div>
+
+
+<div *ngFor="let x of colorss">
+    <h2>{{x}}</h2>
+</div>
+
+<div *ngFor="let x of colorss ; index as i">
+    <h2>{{i}} {{x}}</h2>
+</div>
+
+<!-- if it is the first element then print true for that and false for other-->
+<div *ngFor="let x of colorss ; first as f">
+    <h2>{{f}} {{x}}</h2>
+</div>
+<!-- we have last as l
+    odd as o
+    even as e
+-->
+
+
+
+<!-- COMPONENT INTERACTION USING INPUT AND OUTPUT DECORATOR-->
+<h2>{{"hellloo      "+ name111}}</h2>
+<!-- child to parent-->
+
+
+<!-- PIPES-->
+<h3>{{ame | lowercase}}</h3>
+<h3>{{ame | uppercase}}</h3>
+<h3>{{ame | titlecase}}</h3>
+<!-- Code Evolution starting from thr index 3 samee as python-->
+<h3>{{ame | slice:3}}</h3>
+<h3>{{ame | slice:3:5}}</h3>
+<h3>{{person | json}}</h3>
+
+<h5>{{5.678 | number: '1.2-3'}}</h5>
+<h5>{{5.678 | number: '1.1-2'}}</h5>
+<h5>{{5.678 | number: '3.1-2'}}</h5>
+<h5>{{5.678 | number: '1.4-5'}}</h5>
+
+<h5>{{0.25 | percent}}</h5>
+<h5>{{0.25 | currency}}</h5>
+<h5>{{0.25 | currency:'EUR'}}</h5>
+<h5>{{date}}</h5>
+<h5>{{date | date:'short'}}</h5>
+<h5>{{date | date: 'shortDate'}}</h5>
+<h5>{{date| date: 'shortTime'}}</h5>
+
+<button (click)="callEmployeeList()">Employee List</button>
+<div *ngIf="aaa">
+    <app-employeelist></app-employeelist>
+</div>
+
+<button (click)="callEmployeeDetail()">Employee Detail</button>
+<div *ngIf="aaa1">
+    <app-employeedetail></app-employeedetail>
+</div>
